@@ -285,58 +285,6 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named ros_socket_adaptor_genpy
-
-# Build rule for target.
-ros_socket_adaptor_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_genpy
-.PHONY : ros_socket_adaptor_genpy
-
-# fast build rule for target.
-ros_socket_adaptor_genpy/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/build
-.PHONY : ros_socket_adaptor_genpy/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_generate_messages_py
-
-# Build rule for target.
-ros_socket_adaptor_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_generate_messages_py
-.PHONY : ros_socket_adaptor_generate_messages_py
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_py/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_gennodejs
-
-# Build rule for target.
-ros_socket_adaptor_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_gennodejs
-.PHONY : ros_socket_adaptor_gennodejs
-
-# fast build rule for target.
-ros_socket_adaptor_gennodejs/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/build
-.PHONY : ros_socket_adaptor_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_geneus
-
-# Build rule for target.
-ros_socket_adaptor_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_geneus
-.PHONY : ros_socket_adaptor_geneus
-
-# fast build rule for target.
-ros_socket_adaptor_geneus/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/build
-.PHONY : ros_socket_adaptor_geneus/fast
-
-#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
 
 # Build rule for target.
@@ -363,6 +311,19 @@ roscpp_generate_messages_lisp/fast:
 .PHONY : roscpp_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -376,32 +337,6 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named ros_socket_adaptor_generate_messages_eus
-
-# Build rule for target.
-ros_socket_adaptor_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_generate_messages_eus
-.PHONY : ros_socket_adaptor_generate_messages_eus
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_eus/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_gencpp
-
-# Build rule for target.
-ros_socket_adaptor_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_gencpp
-.PHONY : ros_socket_adaptor_gencpp
-
-# fast build rule for target.
-ros_socket_adaptor_gencpp/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/build
-.PHONY : ros_socket_adaptor_gencpp/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -413,19 +348,6 @@ std_msgs_generate_messages_cpp: cmake_check_build_system
 std_msgs_generate_messages_cpp/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_cpp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_nodejs
@@ -454,19 +376,6 @@ std_msgs_generate_messages_eus/fast:
 .PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named ros_socket_adaptor_genlisp
-
-# Build rule for target.
-ros_socket_adaptor_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_genlisp
-.PHONY : ros_socket_adaptor_genlisp
-
-# fast build rule for target.
-ros_socket_adaptor_genlisp/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/build
-.PHONY : ros_socket_adaptor_genlisp/fast
-
-#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -480,32 +389,6 @@ geometry_msgs_generate_messages_lisp/fast:
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_lisp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_generate_messages
-
-# Build rule for target.
-ros_socket_adaptor_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_generate_messages
-.PHONY : ros_socket_adaptor_generate_messages
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/build
-.PHONY : ros_socket_adaptor_generate_messages/fast
-
-#=============================================================================
 # Target rules for targets named roscpp_generate_messages_py
 
 # Build rule for target.
@@ -517,19 +400,6 @@ roscpp_generate_messages_py: cmake_check_build_system
 roscpp_generate_messages_py/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named _ros_socket_adaptor_generate_messages_check_deps_data
-
-# Build rule for target.
-_ros_socket_adaptor_generate_messages_check_deps_data: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _ros_socket_adaptor_generate_messages_check_deps_data
-.PHONY : _ros_socket_adaptor_generate_messages_check_deps_data
-
-# fast build rule for target.
-_ros_socket_adaptor_generate_messages_check_deps_data/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/build.make ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/build
-.PHONY : _ros_socket_adaptor_generate_messages_check_deps_data/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_lisp
@@ -571,32 +441,6 @@ visualization_msgs_generate_messages_cpp/fast:
 .PHONY : visualization_msgs_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named roscpp_generate_messages_eus
-
-# Build rule for target.
-roscpp_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_generate_messages_cpp
-
-# Build rule for target.
-ros_socket_adaptor_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_generate_messages_cpp
-.PHONY : ros_socket_adaptor_generate_messages_cpp
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_cpp/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_cpp/fast
-
-#=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
 
 # Build rule for target.
@@ -608,19 +452,6 @@ roscpp_generate_messages_cpp: cmake_check_build_system
 roscpp_generate_messages_cpp/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_generate_messages_nodejs
-
-# Build rule for target.
-ros_socket_adaptor_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_generate_messages_nodejs
-.PHONY : ros_socket_adaptor_generate_messages_nodejs
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_nodejs/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
@@ -647,19 +478,6 @@ controller: cmake_check_build_system
 controller/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/build
 .PHONY : controller/fast
-
-#=============================================================================
-# Target rules for targets named ros_socket_adaptor_generate_messages_lisp
-
-# Build rule for target.
-ros_socket_adaptor_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor_generate_messages_lisp
-.PHONY : ros_socket_adaptor_generate_messages_lisp
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_lisp/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_py
@@ -778,6 +596,32 @@ geometry_msgs_generate_messages_eus/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
+#=============================================================================
+# Target rules for targets named rosgraph_msgs_generate_messages_cpp
+
+# Build rule for target.
+rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named roscpp_generate_messages_eus
+
+# Build rule for target.
+roscpp_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -800,35 +644,21 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... ros_socket_adaptor_genpy"
-	@echo "... ros_socket_adaptor_generate_messages_py"
-	@echo "... ros_socket_adaptor_gennodejs"
-	@echo "... ros_socket_adaptor_geneus"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_lisp"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... ros_socket_adaptor_generate_messages_eus"
-	@echo "... ros_socket_adaptor_gencpp"
 	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
-	@echo "... ros_socket_adaptor_genlisp"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... ros_socket_adaptor_generate_messages"
 	@echo "... roscpp_generate_messages_py"
-	@echo "... _ros_socket_adaptor_generate_messages_check_deps_data"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... ros_socket_adaptor_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
-	@echo "... ros_socket_adaptor_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... controller"
-	@echo "... ros_socket_adaptor_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_eus"
@@ -838,6 +668,8 @@ help:
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_eus"
 .PHONY : help
 
 

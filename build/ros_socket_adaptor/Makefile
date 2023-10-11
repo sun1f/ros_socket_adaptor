@@ -68,17 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -90,28 +79,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -134,6 +101,39 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,66 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_genpy: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/rule
-
-.PHONY : ros_socket_adaptor_genpy
-
-# fast build rule for target.
-ros_socket_adaptor_genpy/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genpy.dir/build
-.PHONY : ros_socket_adaptor_genpy/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_generate_messages_py: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/rule
-
-.PHONY : ros_socket_adaptor_generate_messages_py
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_py/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_py.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_py/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_gennodejs: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/rule
-
-.PHONY : ros_socket_adaptor_gennodejs
-
-# fast build rule for target.
-ros_socket_adaptor_gennodejs/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gennodejs.dir/build
-.PHONY : ros_socket_adaptor_gennodejs/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_geneus: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/rule
-
-.PHONY : ros_socket_adaptor_geneus
-
-# fast build rule for target.
-ros_socket_adaptor_geneus/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_geneus.dir/build
-.PHONY : ros_socket_adaptor_geneus/fast
-
-# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
@@ -258,6 +198,21 @@ roscpp_generate_messages_lisp/fast:
 .PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
+ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
@@ -273,36 +228,6 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_generate_messages_eus: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/rule
-
-.PHONY : ros_socket_adaptor_generate_messages_eus
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_eus/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_eus.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_eus/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_gencpp: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/rule
-
-.PHONY : ros_socket_adaptor_gencpp
-
-# fast build rule for target.
-ros_socket_adaptor_gencpp/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_gencpp.dir/build
-.PHONY : ros_socket_adaptor_gencpp/fast
-
-# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
@@ -316,21 +241,6 @@ std_msgs_generate_messages_cpp: ros_socket_adaptor/CMakeFiles/std_msgs_generate_
 std_msgs_generate_messages_cpp/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
@@ -363,21 +273,6 @@ std_msgs_generate_messages_eus/fast:
 .PHONY : std_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_genlisp: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/rule
-
-.PHONY : ros_socket_adaptor_genlisp
-
-# fast build rule for target.
-ros_socket_adaptor_genlisp/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_genlisp.dir/build
-.PHONY : ros_socket_adaptor_genlisp/fast
-
-# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
@@ -393,36 +288,6 @@ geometry_msgs_generate_messages_lisp/fast:
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_generate_messages: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/rule
-
-.PHONY : ros_socket_adaptor_generate_messages
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages.dir/build
-.PHONY : ros_socket_adaptor_generate_messages/fast
-
-# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/rule
@@ -436,21 +301,6 @@ roscpp_generate_messages_py: ros_socket_adaptor/CMakeFiles/roscpp_generate_messa
 roscpp_generate_messages_py/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/rule
-
-# Convenience name for target.
-_ros_socket_adaptor_generate_messages_check_deps_data: ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/rule
-
-.PHONY : _ros_socket_adaptor_generate_messages_check_deps_data
-
-# fast build rule for target.
-_ros_socket_adaptor_generate_messages_check_deps_data/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/build.make ros_socket_adaptor/CMakeFiles/_ros_socket_adaptor_generate_messages_check_deps_data.dir/build
-.PHONY : _ros_socket_adaptor_generate_messages_check_deps_data/fast
 
 # Convenience name for target.
 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
@@ -498,36 +348,6 @@ visualization_msgs_generate_messages_cpp/fast:
 .PHONY : visualization_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_generate_messages_cpp: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/rule
-
-.PHONY : ros_socket_adaptor_generate_messages_cpp
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_cpp/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_cpp.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_cpp/fast
-
-# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -541,21 +361,6 @@ roscpp_generate_messages_cpp: ros_socket_adaptor/CMakeFiles/roscpp_generate_mess
 roscpp_generate_messages_cpp/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_generate_messages_nodejs: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/rule
-
-.PHONY : ros_socket_adaptor_generate_messages_nodejs
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_nodejs/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_nodejs.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_nodejs/fast
 
 # Convenience name for target.
 ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
@@ -586,21 +391,6 @@ controller: ros_socket_adaptor/CMakeFiles/controller.dir/rule
 controller/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/build
 .PHONY : controller/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-ros_socket_adaptor_generate_messages_lisp: ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/rule
-
-.PHONY : ros_socket_adaptor_generate_messages_lisp
-
-# fast build rule for target.
-ros_socket_adaptor_generate_messages_lisp/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/build.make ros_socket_adaptor/CMakeFiles/ros_socket_adaptor_generate_messages_lisp.dir/build
-.PHONY : ros_socket_adaptor_generate_messages_lisp/fast
 
 # Convenience name for target.
 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
@@ -737,6 +527,36 @@ geometry_msgs_generate_messages_eus/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
+# Convenience name for target.
+ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
 src/server/controller.o: src/server/controller.cpp.o
 
 .PHONY : src/server/controller.o
@@ -771,39 +591,22 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... edit_cache"
-	@echo "... ros_socket_adaptor_genpy"
-	@echo "... ros_socket_adaptor_generate_messages_py"
-	@echo "... ros_socket_adaptor_gennodejs"
-	@echo "... ros_socket_adaptor_geneus"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_lisp"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... install/local"
 	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... ros_socket_adaptor_generate_messages_eus"
-	@echo "... ros_socket_adaptor_gencpp"
 	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... test"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
-	@echo "... ros_socket_adaptor_genlisp"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... ros_socket_adaptor_generate_messages"
 	@echo "... roscpp_generate_messages_py"
-	@echo "... _ros_socket_adaptor_generate_messages_check_deps_data"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_cpp"
-	@echo "... rebuild_cache"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... ros_socket_adaptor_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
-	@echo "... ros_socket_adaptor_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... controller"
-	@echo "... ros_socket_adaptor_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_eus"
@@ -815,6 +618,11 @@ help:
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... rebuild_cache"
 	@echo "... src/server/controller.o"
 	@echo "... src/server/controller.i"
 	@echo "... src/server/controller.s"

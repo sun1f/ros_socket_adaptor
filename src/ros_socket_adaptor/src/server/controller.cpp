@@ -12,7 +12,6 @@
 #include <unistd.h>
 #include <iostream>
 #include <vector>
-#include "ros_socket_adaptor/data.h"
 
 using namespace std;
 
@@ -39,7 +38,7 @@ int main(int argc, char **argv)
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(8888);                   // 将一个无符号短整型的主机数值转换为网络字节顺序，即大尾顺序(big-endian)
-    addr.sin_addr.s_addr = inet_addr("10.134.115.5"); // net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
+    addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
     // 3.bind()绑定
 
     int res = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
@@ -47,9 +46,6 @@ int main(int argc, char **argv)
     vector<geometry_msgs::Point> vp;
     while (ros::ok())
     {
-
-        ros_socket_adaptor::data msg;
-
         if (res == -1)
         {
             // cout << "bind创建失败： " << endl;
@@ -70,25 +66,13 @@ int main(int argc, char **argv)
         }
         // 6.使用第5步返回socket描述符，进行读写通信。
         char *ip = inet_ntoa(client.sin_addr);
-        cout << "客户： 【" << ip << "】连接成功" << endl;
+        cout << "客户： [" << ip << "]连接成功" << endl;
 
         float buffer[4] = {0};
         recv(fd, (char *)buffer, sizeof(buffer), 0);
         // int size = read(fd, buffer, sizeof(buffer));//通过fd与客户端联系在一起,返回接收到的字节数
 
-        // cout << "接收到字节数为： " << size << endl;
-        // cout << "内容： " << buffer[1] << endl;
-
-        msg.m_x = buffer[0];
-        msg.m_y = buffer[1];
-        msg.m_z = buffer[2];
-        msg.m_backup = buffer[3];
-        ROS_INFO("%f %f %f %f", msg.m_x, msg.m_y, msg.m_z, msg.m_backup);
-
-        float c0 = buffer[0];
-        float c1 = buffer[1];
-        float c2 = buffer[2];
-        float c3 = buffer[3];
+        ROS_INFO("%f %f %f %f", buffer[0], buffer[1], buffer[2], buffer[3]);
 
         visualization_msgs::Marker points, line_strip;
         points.header.frame_id = line_strip.header.frame_id = "map";
@@ -119,9 +103,9 @@ int main(int argc, char **argv)
         line_strip.color.a = 1.0;
 
         geometry_msgs::Point p;
-        p.x = c0;
-        p.y = c1;
-        p.z = c2;
+        p.x = buffer[0];
+        p.y = buffer[1];
+        p.z = buffer[2];
 
         vp.push_back(p);
 

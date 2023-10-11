@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-    ifstream in("utils/traj_example.txt");
+    ifstream in("dev/traj_example.txt");
     string query;
     vector<string> traj;
     while (getline(in, query))
@@ -36,7 +36,7 @@ int main()
         struct sockaddr_in addr;
         addr.sin_family = AF_INET;
         addr.sin_port = htons(8888);
-        addr.sin_addr.s_addr = inet_addr("10.134.115.5");
+        addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
         int res = connect(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
         if (res == -1)

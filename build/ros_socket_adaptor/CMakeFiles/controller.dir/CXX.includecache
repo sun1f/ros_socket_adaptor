@@ -6,22 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/sun/ros_socket_adaptor/devel/include/ros_socket_adaptor/data.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
 /home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/server/controller.cpp
 ros/ros.h
 /home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/server/ros/ros.h
@@ -51,8 +35,6 @@ iostream
 -
 vector
 -
-ros_socket_adaptor/data.h
-/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/server/ros_socket_adaptor/data.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
