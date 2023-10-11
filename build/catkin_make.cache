@@ -1,0 +1,2 @@
+ros_socket_adaptor
+-DCATKIN_DEVEL_PREFIX=/home/sun/ros_socket_adaptor/devel -DCMAKE_INSTALL_PREFIX=/home/sun/ros_socket_adaptor/install -G Unix Makefiles

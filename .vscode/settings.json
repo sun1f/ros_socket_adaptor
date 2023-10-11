@@ -1,0 +1,21 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/sun/ros_socket_adaptor/devel/lib/python3/dist-packages",
+        "/home/sun/dpgo_ws/devel/lib/python3/dist-packages",
+        "/home/sun/ccmslam_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/usr/lib/python3.8"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/sun/ros_socket_adaptor/devel/lib/python3/dist-packages",
+        "/home/sun/dpgo_ws/devel/lib/python3/dist-packages",
+        "/home/sun/ccmslam_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/usr/lib/python3.8"
+    ],
+    "files.associations": {
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    }
+}

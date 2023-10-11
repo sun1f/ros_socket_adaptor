@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sun/ros_socket_adaptor/devel/setup.sh

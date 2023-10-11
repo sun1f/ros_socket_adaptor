@@ -1,0 +1,8 @@
+prefix=/home/sun/ros_socket_adaptor/install
+
+Name: ros_socket_adaptor
+Description: Description of ros_socket_adaptor
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs visualization_msgs message_runtime
