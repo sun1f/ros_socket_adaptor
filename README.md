@@ -1,5 +1,5 @@
 # ros_socket_adaptor
-This repo is This code repository is about a universal trajectory display interface based on **RVIZ**. The client can send trajectory data to the server through the socket in the **specified format** for display.
+This repo is about a universal trajectory display interface based on **RVIZ**. The client can send trajectory data to the server through the socket in the **specified format** for display.
 
 ## Data Format
 The three-dimensional coordinates *xyz* and a *flag* are used to detect whether a loop occurs.
