@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/io_file.dir/io_file.cpp.o  -o ../bin/io_file 

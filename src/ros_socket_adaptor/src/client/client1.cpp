@@ -1,3 +1,13 @@
+/**
+ * @file client1.cpp
+ * @author elliot (sun1f@foxmail.com)
+ * @brief 每次向服务器端发送一个位置坐标
+ * @version 0.1
+ * @date 2023-10-12
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include <stdio.h>
 #include <sys/types.h>
 #include <stdlib.h>
@@ -14,7 +24,7 @@ using namespace std;
 
 int main()
 {
-    ifstream in("dev/traj_example.txt");
+    ifstream in("/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/data/traj_example.txt");
     string query;
     vector<string> traj;
     while (getline(in, query))
@@ -41,10 +51,10 @@ int main()
         int res = connect(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
         if (res == -1)
         {
-            cout << "bind 链接失败：" << endl;
+            cout << "客户端连接失败：" << endl;
             exit(-1);
         }
-        cout << "bind 链接成功：" << endl;
+        cout << "客户端连接成功：" << endl;
 
         string s = traj[count++];
         string tmp;
@@ -76,10 +86,10 @@ int main()
         }
 
         float a[4] = {x, y, z, 1.0};
-        cout << a[0] << " " << a[1] << " " << a[2] << endl;
+        cout << a[0] << " " << a[1] << " " << a[2] << " " << a[3] << endl;
         send(socket_fd, (char *)a, sizeof(a), 0);
         close(socket_fd);
-        sleep(1);
+        usleep(100000);
     }
 
     return 0;

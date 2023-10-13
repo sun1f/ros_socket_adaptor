@@ -1,3 +1,13 @@
+/**
+ * @file controller2.cpp
+ * @author elliot (sun1f@foxmail.com)
+ * @brief 一次发送所有位置坐标(one vector) 有bug
+ * @version 0.1
+ * @date 2023-10-13
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "ros/ros.h"
 #include <visualization_msgs/Marker.h>
 #include "std_msgs/String.h"
@@ -37,21 +47,20 @@ int main(int argc, char **argv)
     // 2.准备通讯地址（必须是服务器的）
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(8888);                   // 将一个无符号短整型的主机数值转换为网络字节顺序，即大尾顺序(big-endian)
-    addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
+    addr.sin_port = htons(8888);                      // 将一个无符号短整型的主机数值转换为网络字节顺序，即大尾顺序(big-endian)
+    addr.sin_addr.s_addr = inet_addr("10.134.115.5"); // net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
     // 3.bind()绑定
 
     int res = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
 
-    vector<geometry_msgs::Point> vp;
     while (ros::ok())
     {
         if (res == -1)
         {
-            // cout << "bind创建失败： " << endl;
-            // exit(-1);
+            cout << "bind创建失败：" << endl;
+            exit(-1);
         }
-        cout << "bind ok 等待客户端的连接" << endl;
+        cout << "bind ok 等待客户端的连接..." << endl;
         // 4.监听客户端listen()函数
         listen(socket_fd, 30);
         // 5.等待客户端的连接accept()，返回用于交互的socket描述符
@@ -60,19 +69,21 @@ int main(int argc, char **argv)
         int fd = accept(socket_fd, (struct sockaddr *)&client, &len);
         if (fd == -1)
         {
-            cout << "accept错误\n"
-                 << endl;
+            cout << "accept错误" << endl;
             exit(-1);
         }
         // 6.使用第5步返回socket描述符，进行读写通信。
         char *ip = inet_ntoa(client.sin_addr);
         cout << "客户： [" << ip << "]连接成功" << endl;
 
-        float buffer[4] = {0};
-        recv(fd, (char *)buffer, sizeof(buffer), 0);
-        // int size = read(fd, buffer, sizeof(buffer));//通过fd与客户端联系在一起,返回接收到的字节数
+        vector<geometry_msgs::Point> vp; // 本次循环需要绘制的所有点
 
-        ROS_INFO("%f %f %f %f", buffer[0], buffer[1], buffer[2], buffer[3]);
+        // uint32_t size;
+        // recv(fd, (char *)&size, sizeof(uint32_t), 0);
+        vector<vector<float>> vf; // 本次循环收到的所有数据
+        recv(fd, (char *)vf.data(), 228 * 4 * sizeof(float), 0);
+
+        cout << "vf.size() == " << vf.size() << endl;
 
         visualization_msgs::Marker points, line_strip;
         points.header.frame_id = line_strip.header.frame_id = "map";
@@ -102,12 +113,14 @@ int main(int argc, char **argv)
         line_strip.color.b = 1.0;
         line_strip.color.a = 1.0;
 
-        geometry_msgs::Point p;
-        p.x = buffer[0];
-        p.y = buffer[1];
-        p.z = buffer[2];
-
-        vp.push_back(p);
+        for (auto &f : vf)
+        {
+            geometry_msgs::Point p;
+            p.x = f[0];
+            p.y = f[1];
+            p.z = f[2];
+            vp.push_back(p);
+        }
 
         for (auto &x : vp)
         {
@@ -115,8 +128,11 @@ int main(int argc, char **argv)
             line_strip.points.push_back(x);
         }
 
-        // controller.publish(points);
-        controller.publish(line_strip);
+        while (1)
+        {
+            controller.publish(points);
+            controller.publish(line_strip);
+        }
 
         ros::spinOnce();
 

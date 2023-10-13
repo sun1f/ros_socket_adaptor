@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/io_file.cpp
+string
+-
+iostream
+-
+fstream
+-
+

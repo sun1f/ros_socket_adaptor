@@ -1,3 +1,13 @@
+/**
+ * @file io_file.cpp
+ * @author elliot (sun1f@foxmail.com)
+ * @brief 数据格式转换：MH01.txt->traj_example.txt
+ * @version 0.1
+ * @date 2023-10-12
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -6,8 +16,8 @@ using namespace std;
 
 int main()
 {
-    string input_filename = "MH01.txt";
-    string out_filename = "traj_example.txt";
+    string input_filename = "/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/data/MH01.txt";
+    string out_filename = "/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/data/traj_example.txt";
     string query;
     ifstream in(input_filename);
     ofstream out(out_filename);

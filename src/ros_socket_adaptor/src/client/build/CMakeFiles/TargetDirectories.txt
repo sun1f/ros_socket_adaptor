@@ -1,0 +1,6 @@
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/build/CMakeFiles/rebuild_cache.dir
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/build/CMakeFiles/edit_cache.dir
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/build/CMakeFiles/test.dir
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/build/CMakeFiles/io_file.dir
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/build/CMakeFiles/client2.dir
+/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/src/client/build/CMakeFiles/client1.dir

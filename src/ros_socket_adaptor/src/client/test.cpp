@@ -1,3 +1,13 @@
+/**
+ * @file test.cpp
+ * @author elliot (sun1f@foxmail.com)
+ * @brief 从traj_example.txt中按行读取数据
+ * @version 0.1
+ * @date 2023-10-12
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,7 +17,7 @@ using namespace std;
 
 int main()
 {
-    ifstream in("traj_example.txt");
+    ifstream in("/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/data/traj_example.txt");
     vector<string> traj;
     string query;
     while (getline(in, query))

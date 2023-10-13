@@ -415,6 +415,19 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named controller2
+
+# Build rule for target.
+controller2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller2
+.PHONY : controller2
+
+# fast build rule for target.
+controller2/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/controller2.dir/build.make ros_socket_adaptor/CMakeFiles/controller2.dir/build
+.PHONY : controller2/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -441,6 +454,19 @@ visualization_msgs_generate_messages_cpp/fast:
 .PHONY : visualization_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named roscpp_generate_messages_eus
+
+# Build rule for target.
+roscpp_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+#=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
 
 # Build rule for target.
@@ -465,19 +491,6 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 geometry_msgs_generate_messages_py/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named controller
-
-# Build rule for target.
-controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 controller
-.PHONY : controller
-
-# fast build rule for target.
-controller/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/build
-.PHONY : controller/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_py
@@ -558,19 +571,6 @@ visualization_msgs_generate_messages_nodejs/fast:
 .PHONY : visualization_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named visualization_msgs_generate_messages_py
-
-# Build rule for target.
-visualization_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_py
-.PHONY : visualization_msgs_generate_messages_py
-
-# fast build rule for target.
-visualization_msgs_generate_messages_py/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
-.PHONY : visualization_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -597,6 +597,32 @@ geometry_msgs_generate_messages_eus/fast:
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named visualization_msgs_generate_messages_py
+
+# Build rule for target.
+visualization_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 visualization_msgs_generate_messages_py
+.PHONY : visualization_msgs_generate_messages_py
+
+# fast build rule for target.
+visualization_msgs_generate_messages_py/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
+.PHONY : visualization_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named controller1
+
+# Build rule for target.
+controller1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller1
+.PHONY : controller1
+
+# fast build rule for target.
+controller1/fast:
+	$(MAKE) -f ros_socket_adaptor/CMakeFiles/controller1.dir/build.make ros_socket_adaptor/CMakeFiles/controller1.dir/build
+.PHONY : controller1/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -608,19 +634,6 @@ rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
 rosgraph_msgs_generate_messages_cpp/fast:
 	$(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_eus
-
-# Build rule for target.
-roscpp_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_eus
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	$(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
 
 # Help Target
 help:
@@ -654,22 +667,23 @@ help:
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... controller2"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... controller"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_nodejs"
-	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... controller1"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_eus"
 .PHONY : help
 
 

@@ -80,6 +80,17 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -123,17 +134,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -318,6 +318,21 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+ros_socket_adaptor/CMakeFiles/controller2.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/controller2.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/controller2.dir/rule
+
+# Convenience name for target.
+controller2: ros_socket_adaptor/CMakeFiles/controller2.dir/rule
+
+.PHONY : controller2
+
+# fast build rule for target.
+controller2/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller2.dir/build.make ros_socket_adaptor/CMakeFiles/controller2.dir/build
+.PHONY : controller2/fast
+
+# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
@@ -348,6 +363,21 @@ visualization_msgs_generate_messages_cpp/fast:
 .PHONY : visualization_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -376,21 +406,6 @@ geometry_msgs_generate_messages_py: ros_socket_adaptor/CMakeFiles/geometry_msgs_
 geometry_msgs_generate_messages_py/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/controller.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/controller.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/controller.dir/rule
-
-# Convenience name for target.
-controller: ros_socket_adaptor/CMakeFiles/controller.dir/rule
-
-.PHONY : controller
-
-# fast build rule for target.
-controller/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/build
-.PHONY : controller/fast
 
 # Convenience name for target.
 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
@@ -483,21 +498,6 @@ visualization_msgs_generate_messages_nodejs/fast:
 .PHONY : visualization_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-visualization_msgs_generate_messages_py: ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
-
-.PHONY : visualization_msgs_generate_messages_py
-
-# fast build rule for target.
-visualization_msgs_generate_messages_py/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
-.PHONY : visualization_msgs_generate_messages_py/fast
-
-# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
@@ -528,6 +528,36 @@ geometry_msgs_generate_messages_eus/fast:
 .PHONY : geometry_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
+ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+visualization_msgs_generate_messages_py: ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/rule
+
+.PHONY : visualization_msgs_generate_messages_py
+
+# fast build rule for target.
+visualization_msgs_generate_messages_py/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make ros_socket_adaptor/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
+.PHONY : visualization_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+ros_socket_adaptor/CMakeFiles/controller1.dir/rule:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/controller1.dir/rule
+.PHONY : ros_socket_adaptor/CMakeFiles/controller1.dir/rule
+
+# Convenience name for target.
+controller1: ros_socket_adaptor/CMakeFiles/controller1.dir/rule
+
+.PHONY : controller1
+
+# fast build rule for target.
+controller1/fast:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller1.dir/build.make ros_socket_adaptor/CMakeFiles/controller1.dir/build
+.PHONY : controller1/fast
+
+# Convenience name for target.
 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 .PHONY : ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
@@ -542,47 +572,59 @@ rosgraph_msgs_generate_messages_cpp/fast:
 	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make ros_socket_adaptor/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
-# Convenience name for target.
-ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f CMakeFiles/Makefile2 ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+src/server/controller1.o: src/server/controller1.cpp.o
 
-# Convenience name for target.
-roscpp_generate_messages_eus: ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build.make ros_socket_adaptor/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-src/server/controller.o: src/server/controller.cpp.o
-
-.PHONY : src/server/controller.o
+.PHONY : src/server/controller1.o
 
 # target to build an object file
-src/server/controller.cpp.o:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/src/server/controller.cpp.o
-.PHONY : src/server/controller.cpp.o
+src/server/controller1.cpp.o:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller1.dir/build.make ros_socket_adaptor/CMakeFiles/controller1.dir/src/server/controller1.cpp.o
+.PHONY : src/server/controller1.cpp.o
 
-src/server/controller.i: src/server/controller.cpp.i
+src/server/controller1.i: src/server/controller1.cpp.i
 
-.PHONY : src/server/controller.i
+.PHONY : src/server/controller1.i
 
 # target to preprocess a source file
-src/server/controller.cpp.i:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/src/server/controller.cpp.i
-.PHONY : src/server/controller.cpp.i
+src/server/controller1.cpp.i:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller1.dir/build.make ros_socket_adaptor/CMakeFiles/controller1.dir/src/server/controller1.cpp.i
+.PHONY : src/server/controller1.cpp.i
 
-src/server/controller.s: src/server/controller.cpp.s
+src/server/controller1.s: src/server/controller1.cpp.s
 
-.PHONY : src/server/controller.s
+.PHONY : src/server/controller1.s
 
 # target to generate assembly for a file
-src/server/controller.cpp.s:
-	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller.dir/build.make ros_socket_adaptor/CMakeFiles/controller.dir/src/server/controller.cpp.s
-.PHONY : src/server/controller.cpp.s
+src/server/controller1.cpp.s:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller1.dir/build.make ros_socket_adaptor/CMakeFiles/controller1.dir/src/server/controller1.cpp.s
+.PHONY : src/server/controller1.cpp.s
+
+src/server/controller2.o: src/server/controller2.cpp.o
+
+.PHONY : src/server/controller2.o
+
+# target to build an object file
+src/server/controller2.cpp.o:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller2.dir/build.make ros_socket_adaptor/CMakeFiles/controller2.dir/src/server/controller2.cpp.o
+.PHONY : src/server/controller2.cpp.o
+
+src/server/controller2.i: src/server/controller2.cpp.i
+
+.PHONY : src/server/controller2.i
+
+# target to preprocess a source file
+src/server/controller2.cpp.i:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller2.dir/build.make ros_socket_adaptor/CMakeFiles/controller2.dir/src/server/controller2.cpp.i
+.PHONY : src/server/controller2.cpp.i
+
+src/server/controller2.s: src/server/controller2.cpp.s
+
+.PHONY : src/server/controller2.s
+
+# target to generate assembly for a file
+src/server/controller2.cpp.s:
+	cd /home/sun/ros_socket_adaptor/build && $(MAKE) -f ros_socket_adaptor/CMakeFiles/controller2.dir/build.make ros_socket_adaptor/CMakeFiles/controller2.dir/src/server/controller2.cpp.s
+.PHONY : src/server/controller2.cpp.s
 
 # Help Target
 help:
@@ -602,11 +644,13 @@ help:
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... controller2"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_cpp"
+	@echo "... rebuild_cache"
+	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... controller"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_eus"
@@ -614,18 +658,20 @@ help:
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... list_install_components"
 	@echo "... visualization_msgs_generate_messages_nodejs"
-	@echo "... install"
-	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... install"
+	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... controller1"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... test"
 	@echo "... edit_cache"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... rebuild_cache"
-	@echo "... src/server/controller.o"
-	@echo "... src/server/controller.i"
-	@echo "... src/server/controller.s"
+	@echo "... src/server/controller1.o"
+	@echo "... src/server/controller1.i"
+	@echo "... src/server/controller1.s"
+	@echo "... src/server/controller2.o"
+	@echo "... src/server/controller2.i"
+	@echo "... src/server/controller2.s"
 .PHONY : help
 
 
