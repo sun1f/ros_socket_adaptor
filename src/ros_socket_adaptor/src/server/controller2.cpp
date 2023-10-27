@@ -1,7 +1,7 @@
 /**
  * @file controller2.cpp
  * @author elliot (sun1f@foxmail.com)
- * @brief 一次发送所有位置坐标(one vector) 有bug
+ * @brief 一次发送所有位置坐标
  * @version 0.1
  * @date 2023-10-13
  *
@@ -131,7 +131,7 @@ int main(int argc, char **argv)
             points.points.push_back(x);
             line_strip.points.push_back(x);
         }
-        cout << "still ok2" << endl;
+        // cout << "still ok2" << endl;
 
         // controller.publish(points);
         controller.publish(line_strip);

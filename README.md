@@ -10,4 +10,4 @@ In this way, when rviz is opened, the corresponding topic can be selected for di
 
 ## Client
 The client needs to send the specified data format to the server. The specific implementation needs to be completed according to your SLAM framework and code structure.  
-I provide a simple implementation of the test version here, namely **client.cpp**, which reads data from the document **traj_example.txt**.
+I provide two simple implementations of the test version here, namely **client*x*.cpp**, which reads data from the document **traj_example.txt**.
