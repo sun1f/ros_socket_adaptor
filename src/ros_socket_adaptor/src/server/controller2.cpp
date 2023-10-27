@@ -4,9 +4,9 @@
  * @brief 一次发送所有位置坐标(one vector) 有bug
  * @version 0.1
  * @date 2023-10-13
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 #include "ros/ros.h"
 #include <visualization_msgs/Marker.h>
@@ -53,6 +53,8 @@ int main(int argc, char **argv)
 
     int res = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
 
+    vector<geometry_msgs::Point> vp; // 每次循环需要绘制的所有点
+
     while (ros::ok())
     {
         if (res == -1)
@@ -76,14 +78,15 @@ int main(int argc, char **argv)
         char *ip = inet_ntoa(client.sin_addr);
         cout << "客户： [" << ip << "]连接成功" << endl;
 
-        vector<geometry_msgs::Point> vp; // 本次循环需要绘制的所有点
+        vp.clear();
 
-        // uint32_t size;
-        // recv(fd, (char *)&size, sizeof(uint32_t), 0);
-        vector<vector<float>> vf; // 本次循环收到的所有数据
-        recv(fd, (char *)vf.data(), 228 * 4 * sizeof(float), 0);
+        uint32_t size = 0;
+        recv(fd, (char *)&size, sizeof(uint32_t), 0);
+        cout << "size = " << size << endl;
 
-        cout << "vf.size() == " << vf.size() << endl;
+        float buffer[size] = {0};
+        recv(fd, (char *)buffer, sizeof(buffer), 0);
+        // cout << "buffer[3] = " << buffer[3] << endl;
 
         visualization_msgs::Marker points, line_strip;
         points.header.frame_id = line_strip.header.frame_id = "map";
@@ -113,26 +116,26 @@ int main(int argc, char **argv)
         line_strip.color.b = 1.0;
         line_strip.color.a = 1.0;
 
-        for (auto &f : vf)
+        for (int i = 0; i + 3 < size; i += 3)
         {
             geometry_msgs::Point p;
-            p.x = f[0];
-            p.y = f[1];
-            p.z = f[2];
+            p.x = buffer[i];
+            p.y = buffer[i + 1];
+            p.z = buffer[i + 2];
             vp.push_back(p);
         }
+        // cout << "still ok1" << endl;
 
         for (auto &x : vp)
         {
             points.points.push_back(x);
             line_strip.points.push_back(x);
         }
+        cout << "still ok2" << endl;
 
-        while (1)
-        {
-            controller.publish(points);
-            controller.publish(line_strip);
-        }
+        // controller.publish(points);
+        controller.publish(line_strip);
+        // cout << "still ok3" << endl;
 
         ros::spinOnce();
 

@@ -24,19 +24,19 @@ using namespace std;
 
 int main()
 {
-    ifstream in("/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/traj_example.txt");
+    ifstream in("/home/sun/ros_socket_adaptor/src/ros_socket_adaptor/data/traj_example.txt");
     string query;
     vector<string> traj;
     vector<vector<float>> data_to_send;
 
+    // 一次性读取文件中全部数据至traj
+    while (getline(in, query))
+    {
+        traj.push_back(query);
+    }
+
     while (1)
     {
-        // 一次性读取文件中全部数据至traj
-        while (getline(in, query))
-        {
-            traj.push_back(query);
-        }
-
         int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
         if (socket_fd == -1)
         {
@@ -57,12 +57,9 @@ int main()
         }
         cout << "客户端连接成功：" << endl;
 
-        /* float a[4] = {x, y, z, 1.0};
-        cout << a[0] << " " << a[1] << " " << a[2] << " " << a[3] << endl; */
+        data_to_send.clear();
 
-        // send(socket_fd, (char *)a, sizeof(a), 0);
-
-        /* for (string s : traj)
+        for (string s : traj)
         {
             string tmp;
             float x, y, z;
@@ -91,54 +88,28 @@ int main()
                     times++;
                 }
             }
-            float a[4] = {x, y, z, 1.0};
-            send(socket_fd, (char *)a, sizeof(a), 0);
+            data_to_send.push_back({x, y, z});
         }
 
-        close(socket_fd);
-        sleep(1);
-    } */
+        uint32_t size = data_to_send.size() * 3;
+        cout << "actual data size = " << size << endl;
+        send(socket_fd, (char *)&size, sizeof(uint32_t), 0);
 
-        string tmp;
-        float x, y, z;
-        int times = 0;
+        float buffer[size] = {0}; // 准备buffer的数据，实际发送的是buffer数组
 
-        for (string s : traj)
+        int count = 0;
+        for (auto &x : data_to_send)
         {
-            for (int i = 0; i < s.size(); ++i)
+            for (auto &f : x)
             {
-                if (s[i] != ' ')
-                {
-                    tmp.push_back(s[i]);
-                }
-                else
-                {
-                    if (times == 1)
-                    {
-                        x = stof(tmp);
-                    }
-                    else if (times == 2)
-                    {
-                        y = stof(tmp);
-                    }
-                    else if (times == 3)
-                    {
-                        z = stof(tmp);
-                    }
-                    tmp.clear();
-                    times++;
-                }
+                buffer[count++] = f;
             }
-            data_to_send.push_back({x, y, z, 1.0});
         }
 
-        // uint32_t size = data_to_send.size();
-        // send(socket_fd, (char *)&size, sizeof(uint32_t), 0);
-        send(socket_fd, (char *)data_to_send.data(), data_to_send.size() * 4 * sizeof(float), 0);
+        send(socket_fd, (char *)buffer, sizeof(buffer), 0);
 
         close(socket_fd);
-        sleep(1);
-
-        return 0;
+        usleep(100000);
     }
+    return 0;
 }

@@ -48,7 +48,7 @@ int main(int argc, char **argv)
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(8888);                   // 将一个无符号短整型的主机数值转换为网络字节顺序，即大尾顺序(big-endian)
-    addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
+    addr.sin_addr.s_addr = inet_addr("10.134.115.5"); // net_addr方法可以转化字符串，主要用来将一个十进制的数转化为二进制的数，用途多于ipv4的IP转化。
     // 3.bind()绑定
 
     int res = bind(socket_fd, (struct sockaddr *)&addr, sizeof(addr));
@@ -70,7 +70,9 @@ int main(int argc, char **argv)
         int fd = accept(socket_fd, (struct sockaddr *)&client, &len);
         if (fd == -1)
         {
-            cout << "accept错误" << endl;
+            // cout << "accept错误" << endl;
+            cout << "Tracking lost..." << endl;
+            // continue;
             exit(-1);
         }
         // 6.使用第5步返回socket描述符，进行读写通信。
